@@ -397,7 +397,7 @@ First of all we have to enable the source map feature for mapping codes for Java
 
 </aside>
 
-## Built-In Types
+## TypeScript Types
 - Built-In Types
 - Any Types
 
