@@ -361,3 +361,38 @@ Then we will found the **tsconfig.json** file, which is for compiler settings / 
     
 
 ## Debugging TypeScript application
+First of all we have to enable the source map feature for mapping codes for JavaScript. To do so, you have to make one configuration enable which is **“sourceMap”: true** and then it will enables source map when runs the code immediately create a map file for you.
+
+**⇒ When you debugs with VS-Code and then select to create .json file when debugging,**
+
+- **—> launch.json**
+    
+    ```json
+    {
+        // Use IntelliSense to learn about possible attributes.
+        // Hover to view descriptions of existing attributes.
+        // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+        "version": "0.2.0",
+        "configurations": [
+            {
+                "type": "node",
+                "request": "launch",
+                "name": "Launch Program",
+                "skipFiles": [
+                    "<node_internals>/**"
+                ],
+                "program": "${workspaceFolder}/dist/app.js",
+                "preLaunchTask": "tsc: build - tsconfig.json",
+                "outFiles": [
+                    "${workspaceFolder}/**/*.js"
+                ]
+            }
+        ]
+    }
+    ```
+    
+
+<aside>
+💡 Then after you did debugging file creating done, then try to make run with shortcuts which is given on VS-Code Editor. Then try to understand the variables changes, call-stacks, and watch modes from F10 (Start Over) from debug runner.
+
+</aside>
