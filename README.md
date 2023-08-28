@@ -396,3 +396,59 @@ First of all we have to enable the source map feature for mapping codes for Java
 💡 Then after you did debugging file creating done, then try to make run with shortcuts which is given on VS-Code Editor. Then try to understand the variables changes, call-stacks, and watch modes from F10 (Start Over) from debug runner.
 
 </aside>
+
+## Built-In Types
+- Built-In Types
+- Any Types
+
+## Built-In Types
+
+JavaScript types are added also new Types provides by TypeScript it-self. So we can make combine with, we got in TypeScript 11 Built-In Types 😎🥳.
+
+**⇒ JavaScript Types**
+
+- Number
+- String
+- Boolean
+- Null
+- Undefined
+- Object
+
+**⇒TypeScript Types**
+
+- Any
+- Unknown
+- Never
+- Enum
+- Tuple
+
+![Screenshot 2023-08-19 at 1.39.55 PM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a6f56cda-c153-40fb-9506-16799f93dd2f/Screenshot_2023-08-19_at_1.39.55_PM.png)
+
+### Primitive Datatypes
+
+There are some Primitive Datatypes on TypeScript,
+
+1. **Number  |**  2.  **String |**  3.  **Boolean**
+
+```tsx
+let sales: number = 1234;
+let course: string = 'TypeScript';
+let is_published: boolean = true;
+```
+
+<aside>
+💡 But when you don’t provides any types, TypeScript will defined it as **any** type.
+
+</aside>
+
+## The Any Type
+
+```tsx
+// Any Types..
+let sales2;
+sales2 = 'ABC';
+sales2 = 123;
+
+console.log('========== Any Type ==========');
+console.log(`sales2 = ${sales2} [${typeof sales2}]`);
+```
