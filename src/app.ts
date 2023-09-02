@@ -3,6 +3,13 @@ import arrays from './arrays';
 import tuples from './tuples';
 import enums from './enums';
 import functions from './functions';
+import objects from './objects';
+import typeAliasesInterfaces from './typeAliases@Interfaces';
+import unionTypes from './unionTypes';
+import intersectionTypes from './intersectionTypes';
+import literalTypes from './literalTypes';
+import nullableTypes from './nullableTypes';
+import optionalChaining from './optionalChaining';
 
 
 /**
@@ -36,3 +43,10 @@ arrays();
 tuples();
 enums();
 functions();
+objects();
+typeAliasesInterfaces();
+unionTypes();
+intersectionTypes();
+literalTypes();
+nullableTypes();
+optionalChaining();

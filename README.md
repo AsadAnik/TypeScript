@@ -1090,7 +1090,7 @@ interface Person {
 	age: number;
 }
 
-let person: Person {
+let person: Person = {
 	firstName: "Asad",
 	lastName: "Anik",
 	age: 23
