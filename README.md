@@ -452,3 +452,123 @@ sales2 = 123;
 console.log('========== Any Type ==========');
 console.log(`sales2 = ${sales2} [${typeof sales2}]`);
 ```
+
+## Array
+In TypeScript, arrays are used to store collections of values of the same type, and interfaces define the structure of objects. Combining arrays with interfaces can lead to powerful data structures that represent real-world scenarios more accurately.
+
+We can use Arrays with strongly typed in TypeScript. Thats why we use type-annotations before declaring the Arrays.
+
+```tsx
+let numbers: number[] = [1, 2, 3, 4, 5];
+let names: string[] = ["Alice", "Bob", "Charlie"];
+```
+
+⇒ So let’s traversing the Array, when you declared this array as strongly typed and then using to traversing it with loop throw. Then you can access all numbers built-in method by default from suggestions list. That is another benefit of using type-annotations. 
+
+Many methods related to numbers array like, toExponential(), toFixed(), toLocalString(), toPrecision(), valueOf(), and etc. So thats all for numbers object.
+
+```tsx
+let numbers: number[] = [];
+numbers.forEach(n => n.toPrecision());
+```
+
+<aside>
+💡 And we don’t get this thing on JavaScript
+
+</aside>
+
+### Interfaces and Arrays:
+
+`Interfaces` can be used to define the structure of elements in an array. This is particularly useful when you want to ensure consistency across the items stored in the array.
+
+```tsx
+interface Book {
+	title: string;
+	author: string;
+	pages: number;
+}
+
+let library: Book[] = [
+	{ title: "The Great Getsby", author: "F. Scott Fitzgerald", pages: 180 },
+	{ title: "To Kill a Mockingbird", author: "Harper Lee", pages: 281 },
+	{ title: "Mastery Engineering", author: "Asad Anik", pages: 350 }
+];
+```
+
+### Real-life examples of arrays and interfaces:
+
+1. **Student Grades:**
+    
+    Arrays can store collections of `student grades`, and interfaces can define the structure of each grade.
+    
+    ```tsx
+    interface Grade {
+        subject: string;
+        score: number;
+    }
+    
+    let studentGrades: Grade[] = [
+        { subject: "Math", score: 90 },
+        { subject: "English", score: 85 },
+        { subject: "History", score: 78 }
+    ];
+    ```
+    
+2. **Shopping Cart:**
+    
+    Arrays can be used to represent items in a `shopping cart`, and an interface can define the structure of each item.
+    
+    ```tsx
+    interface CartItem {
+        productId: number;
+        name: string;
+        price: number;
+        quantity: number;
+    }
+    
+    let shoppingCart: CartItem[] = [
+        { productId: 1, name: "Laptop", price: 999, quantity: 1 },
+        { productId: 2, name: "Headphones", price: 50, quantity: 2 }
+    ];
+    ```
+    
+3. **Todo List:**
+    
+    Arrays can store `todo` items, and an interface can define the structure of each item.
+    
+    ```tsx
+    interface TodoItem {
+        id: number;
+        task: string;
+        completed: boolean;
+    }
+    
+    let todos: TodoItem[] = [
+        { id: 1, task: "Finish project", completed: false },
+        { id: 2, task: "Buy groceries", completed: true }
+    ];
+    ```
+    
+4. **Employee Records:**
+    
+    Arrays can hold `employee records`, and interfaces can define the structure of each record.
+    
+    ```tsx
+    interface Employee {
+        id: number;
+        name: string;
+        position: string;
+        salary: number;
+    }
+    
+    let employees: Employee[] = [
+        { id: 1, name: "Alice", position: "Manager", salary: 60000 },
+        { id: 2, name: "Bob", position: "Developer", salary: 50000 }
+    ];
+    ```
+    
+
+<aside>
+💡 Using interfaces with arrays helps ensure that the data stored in the arrays adheres to a consistent structure, making your code more maintainable and easier to understand. It also allows you to leverage TypeScript's type checking to catch potential errors early in the development process.
+</aside>
+
