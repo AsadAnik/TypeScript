@@ -572,3 +572,1152 @@ let library: Book[] = [
 💡 Using interfaces with arrays helps ensure that the data stored in the arrays adheres to a consistent structure, making your code more maintainable and easier to understand. It also allows you to leverage TypeScript's type checking to catch potential errors early in the development process.
 </aside>
 
+## Tuples
+In TypeScript, a tuple is a data structure that allows you to store a fixed-size collection of elements, where each element can have a different type. Tuples are similar to arrays, but they have a specific length and a specific type for each element at a defined index. Tuples are often used when you want to represent a collection of values with different types and a known order.
+
+Here's an example of a tuple that represents a person's information: name (string), age (number), and whether they are employed (boolean):
+
+```tsx
+let person: [string, number, boolean];
+person = ["Sadia Lima", 20, true];
+```
+
+Or, we can initialise in single statement,
+
+```tsx
+const user: [number, string] = [1, 'Asad Anik'];
+```
+
+<aside>
+💡 In this example, **`person`** & **`user`** is a tuple that contains a string, a number, and a boolean in that order.
+
+</aside>
+
+## **Real-life examples of tuples:**
+
+1.  **Coordinates:** 
+    
+    Tuples can be used to represent `coordinates`, such as latitude and longitude, which are of different types.
+    
+    ```tsx
+    let coordinates: [number, number] = [40.7128, -74.0060];
+    ```
+    
+2. **RGB Color Values:** 
+    
+    Tuples can represent `RGB color values` with three numbers ranging from 0 to 255.
+    
+    ```tsx
+    let backgroundColor: [number, number, number] = [255, 0, 128]; // Bright pink
+    ```
+    
+3. **HTTP Response:** 
+    
+    When dealing with `HTTP responses`, you might have a tuple containing the response status code and the response data.
+    
+    ```tsx
+    let httpResponse: [number, string, object] = [200, "Success", { data: 2023 }];
+    ```
+    
+4. **Date and Time:** 
+    
+    You can represent a `date and time` using a tuple with a number for the year, month, day, hour, minute, and second.
+    
+    ```tsx
+    let dateTime: [number, number, number, number, number, number] = [2023, 8, 28, 12, 30, 0];
+    ```
+    
+5. **Key-Value Pairs:** 
+    
+    Tuples can also be used to represent `key-value pairs` in a limited fashion.
+    
+    ```tsx
+    let keyValue: [string, any] = ["username", "john_doe"];
+    ```
+    
+## Enums
+In TypeScript, an enum is a way to define a set of named constant values. Enums allow you to create a collection of related values that have a clear and meaningful name, making your code more readable and expressive. Enums are particularly useful when you have a group of values that are closely related and represent a specific concept.
+
+```tsx
+enum Direction { Up, Down, Left, Right };
+```
+
+<aside>
+💡 In this example, the **`Direction`** enum has four values: **`Up`**, **`Down`**, **`Left`**, and **`Right`**. By default, these values are assigned numeric values starting from 0 (e.g., **`Up`** is 0, **`Down`** is 1, and so on). However, you can also explicitly assign values to enum members.
+
+</aside>
+
+⇒ Another great Example for understanding the **`Enum`,**
+
+```tsx
+enum Size { Small, Medium, Large };
+console.log(Size);
+```
+
+> {
+  '0': 'Small',
+  '1': 'Medium',
+  '2': 'Large',
+  Small: 0,
+  Medium: 1,
+  Large: 2
+}
+> 
+
+<aside>
+💡 Then we can access the enums data with multiple ways.
+
+</aside>
+
+**Example →**
+
+```tsx
+enum Size { Small, Medium, Large };
+console.log(Size);
+
+// Access values with multiple ways..
+let mySize = Size.Small;
+console.log(`My Size - ${mySize}`);
+
+let mySize2 = Size['Medium'];
+console.log(`My Size 2 - ${mySize2}`);
+```
+
+⇒ Also its `automatically increments` the values of variable it-self. And when we defined some of value then its iterates with this value. 
+
+For Example →
+
+```tsx
+// Starting with other values..
+enum Width { Sm = 2, Md, Lg };
+console.log(Width);
+```
+
+### Real life Examples
+
+1. **Days of the Week:** 
+    
+    Enums are commonly used to represent `days of the week`.
+    
+    ```tsx
+    enum DaysOfWeek = { Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday };
+    
+    let today: DaysOfWeek = DaysOfWeek.Friday;
+    console.log(today);
+    ```
+    
+    > 5
+    > 
+2. **Cardinal Directions:** 
+    
+    As shown earlier, enums can be used to represent `cardinal directions`.
+    
+    ```tsx
+    enum CardinalDirections { North, South, East, West };
+    
+    let heading: CardinalDirections = CardinalDirections.North;
+    console.log(heading);
+    ```
+    
+    > 0
+    > 
+3. **HTTP Status Codes:** 
+    
+    Enums can be used to represent `HTTP status codes` with meaningful names.
+    
+    ```tsx
+    enum HttpStatus { OK = 200, NotFound = 404, InternalServerError = 500 };
+    
+    let responseCode: HttpStatus = HttpStatus.NotFound;
+    console.log(`Page Not Found ${responseCode}`);
+    ```
+    
+    > Page Not Found 404
+    > 
+4. **Colors:** 
+    
+    Enums can also be used to represent `colors`.
+    
+    ```tsx
+    enum Color { Red = '#FF0000', Green = '#00FF00', Blue = '#0000FF' };
+    
+    let selectColor = Color.Green;
+    console.log(`Green Color Code - ${selectColor}`);
+    ```
+    
+    > Green Color Code - #00FF00
+    > 
+5. **Months:** 
+    
+    Enums can represent `months` of the year.
+    
+    ```tsx
+     enum Month { January = 1, February, March, April, May, June, July, August, September, October, November, December };
+        
+    let currentMonth = Month.July;
+    console.log(`Special Month - ${currentMonth}`);
+    ```
+    
+    > Special Month - 6
+    >
+
+## Functions
+In TypeScript, functions are an essential part of the language, just like in JavaScript. Functions in TypeScript can have parameter types, return types, and can be assigned to variables, passed as arguments, or returned from other functions. TypeScript's static type checking helps catch potential errors early in the development process.
+
+### **Defining Functions:**
+
+⇒ In TypeScript, you can define functions using `type annotations` for parameters and return types. Here's a simple example:
+
+```tsx
+function add(a: number, b: number): number {
+    return a + b;
+}
+```
+
+<aside>
+💡 In this example, the **`add`** function takes two parameters of type **`number`** and returns a value of type **`number`**.
+
+</aside>
+
+### Define Function with Types:
+
+Inside type we can say how our functions shape is looks like. And then can be use like Functional Programming (Using Statement instead of Expression)
+
+```tsx
+// Function with Types..
+type MathOperation = (a: number, b: number) => number;
+
+const addition: MathOperation = function(a, b) {
+		return a + b;
+};
+
+const sumation = addition(10, 5);
+console.log(`Addition : ${sumation}`);
+```
+
+> Addition : 15
+> 
+
+<aside>
+💡 Here, **`MathOperation`** is a type representing a function that takes two **`number`** parameters and returns a **`number`**.
+
+</aside>
+
+### Optional & Default Parameter:
+
+**⇒ Optional Parameter,**
+
+```tsx
+// Function with default value..
+function yourName(fname: string, Mname: string, lname?: string): string {
+		return `My name is ${fname} ${Mname} ${lname || ''}`;
+};
+
+const myFullName = yourName("Asad", "Anik");
+console.log(myFullName);
+```
+
+> My name is Asad Anik
+> 
+
+**⇒ Default Parameter,**
+
+```tsx
+// Default Parameter..
+function calculateTax(income: number, taxYear = 2022): number {
+	if (taxYear < 2023) {
+			return income * 1.8;
+	}
+	return income * 1.2;
+}
+
+const myIncomeWithTax = calculateTax(84_000);
+console.log(`My Income with Tax : ${myIncomeWithTax}`);
+```
+
+> My Income with Tax : 151200
+> 
+
+### Rest Parameter:
+
+You can use rest parameters to capture multiple arguments as an array.
+
+let’s solving this problem → `Sum of (1+2+3+4+5+……….+n = ?)`
+
+```tsx
+// Example of Rest Peramater..
+function sumOfSerialNumbers(...numbers: number[]): number {
+		return numbers.reduce((total, num) => total + num, 0);
+}
+
+const sumOfNumbers = sumOfSerialNumbers(1, 2, 3, 4, 5);
+console.log(sumOfNumbers);
+```
+
+> 15
+> 
+
+### Higher-Order Functions:
+
+You can define `higher-order functions` that take other functions as parameters or return them.
+
+```tsx
+// Function with Types..
+type MathOperation = (a: number, b: number) => number;
+
+const addition: MathOperation = function(a, b) {
+		return a + b;
+};
+
+// Higher-Order Function..
+function applyOperation(num1: number, num2: number, operation: MathOperation): number {
+		return operation(num1, num2);
+};
+
+const result = applyOperation(23, 20, addition);
+console.log(`Result of Addition - ${result}`);
+```
+
+> Result of Addition - 43
+> 
+
+### Callbacks:
+
+`Callbacks` are commonly used in `asynchronous programming`. Here's a simplified example:
+
+```tsx
+// Callbacks..
+function fetchData(callBack: (data: string) => void): void {
+		// Simulate asynchronous data fetching..
+		setTimeout(() => {
+				callBack("Data Fetched!");
+		}, 1000);
+}
+
+fetchData((data) => {
+		console.log(data);
+});
+```
+
+> Data Fetched!
+> 
+
+<aside>
+💡 NOTE: You can use some configurations to see more optimise compiled JavaScript codes in TypeScript. From **tsconfig.json** enable → “**noUnusedLocals**”, “**noUnusedParameters**”, and “**noImplicitReturns**” to make **true**
+</aside>
+
+## Objects
+In TypeScript, objects are one of the most fundamental concepts. Objects allow you to represent real-world entities, data structures, or concepts as collections of properties (also known as fields or attributes) and their corresponding values. Objects in TypeScript can have their own types, defined using interfaces or classes, which provide a blueprint for their structure and behaviour.
+
+### **Defining Objects:**
+
+You can define objects using curly braces
+
+```tsx
+let person = {
+    firstName: "Alice",
+    lastName: "Smith",
+    age: 30
+};
+```
+
+and specifying their properties along with their values.
+
+<aside>
+💡 In this example, **`person`** is an object with properties **`firstName`**, **`lastName`**, and **`age`**.
+</aside>
+
+⇒ Let’s see the Object with Type in it-self,
+
+```tsx
+const employee: { id: number, name: string, retire: (date: Date) => void } = {
+	id: 1,
+	name: "Asad Anik",
+	retire: (date: Date) => {
+		console.log(date);
+	}
+};
+```
+
+—> Now let’s see with some additional keywords to defining types, **`readonly`**
+
+```tsx
+const user: { readonly id: number, name: string } = {
+	id: 2,
+	name: 'John Doe'
+};
+```
+
+### Object with Type-Aliases:
+
+`Type aliases` allow you to create a new name for any type, including primitive types, union types, and object types. They are particularly useful when dealing with complex types or when you want to create a type that is based on an existing one.
+
+```tsx
+type UserProfile = {
+    username: string;
+    email: string;
+    age: number;
+};
+
+let user: UserProfile = {
+    username: "john_doe",
+    email: "john@example.com",
+    age: 25
+};
+```
+
+### **Object Types with Interfaces:**
+
+`Interfaces` in TypeScript allow you to define the structure of an object, including property names, types, and optionally whether they are required or optional.
+
+```tsx
+interface Person {
+    firstName: string;
+    lastName: string;
+    age: number;
+}
+
+let person: Person = {
+    firstName: "Alice",
+    lastName: "Smith",
+    age: 30
+};
+```
+
+### Real-life Examples of Objects:
+
+1. **User Profile:**
+    
+    Objects are commonly used to represent `user profiles` with various attributes.
+    
+    ```tsx
+    interface UserProfile {
+        username: string;
+        email: string;
+        age: number;
+        isPremium: boolean;
+    }
+    
+    let user: UserProfile = {
+        username: "john_doe",
+        email: "john@example.com",
+        age: 25,
+        isPremium: true
+    };
+    ```
+    
+2. **Product Information:**
+    
+    Objects can be used to represent `product information` with different properties.
+    
+    ```tsx
+    interface Product {
+        name: string;
+        price: number;
+        category: string;
+        inStock: boolean;
+    }
+    
+    let laptop: Product = {
+        name: "Laptop",
+        price: 999,
+        category: "Electronics",
+        inStock: true
+    };
+    ```
+    
+3. **Location Coordinates:**
+    
+    Objects can be used to represent `coordinates` of a location.
+    
+    ```tsx
+    interface Coordinates {
+        latitude: number;
+        longitude: number;
+    }
+    
+    let newYork: Coordinates = {
+        latitude: 40.7128,
+        longitude: -74.0060
+    };
+    ```
+    
+4. **Todo Task:**
+    
+    Objects can represent individual `todo` tasks.
+    
+    ```tsx
+    interface TodoTask {
+        id: number;
+        title: string;
+        description: string;
+        isCompleted: boolean;
+    }
+    
+    let task: TodoTask = {
+        id: 1,
+        title: "Complete project",
+        description: "Finish the final report and submit.",
+        isCompleted: false
+    };
+    ```
+
+## Type-Alias & Interfaces
+In TypeScript, both type aliases and interfaces are used to define custom data types. They provide a way to give a name to a shape of data, making your code more readable and maintainable. While they can often be used interchangeably, there are some differences in their behaviour and use cases.
+
+### **Type Aliases:**
+
+`Type aliases` allow you to create a new name for any type, including primitive types, union types, and object types. They are particularly useful when dealing with complex types or when you want to create a type that is based on an existing one.
+
+```tsx
+type UserID = number;
+type Point = { x: number; y: number };
+type Result = string | number;
+
+let id: UserID = 123;
+let origin: Point = { x: 0, y: 1 };
+let value: Result = "success";
+```
+
+### **Interfaces:**
+
+`Interfaces` define the shape of an object, specifying the names and types of its properties. They are mainly used to define contracts for object structures and can also include optional properties, methods, and more.
+
+```tsx
+interface Person {
+	firstName: string;
+	lastName: string;
+	age: number;
+}
+
+let person: Person {
+	firstName: "Asad",
+	lastName: "Anik",
+	age: 23
+};
+```
+
+### Real-life examples of Type Aliases & Interfaces:
+
+1. **User Profile:**
+    
+    `Type aliases` can be useful for simplifying complex types.
+    
+    ```tsx
+    type UserProfile = {
+        username: string;
+        email: string;
+        age: number;
+    };
+    
+    let user: UserProfile = {
+        username: "john_doe",
+        email: "john@example.com",
+        age: 25
+    };
+    ```
+    
+2. **Function Signature:**
+    
+    `Interfaces` are great for describing function signatures.
+    
+    ```tsx
+    interface MathOperation {
+    	(a: number, b: number): number;
+    }
+    
+    let add: MathOperation = (a, b) => a + b;
+    let substract: MathOperation = (num1, num2) => num1 - num2;
+    ```
+    
+3. **Product Information:**
+    
+    `Interface` can define the structure of an object, as seen earlier.
+    
+    ```tsx
+    interface Product {
+        name: string;
+        price: number;
+        category: string;
+    }
+    
+    let laptop: Product = {
+        name: "Laptop",
+        price: 999,
+        category: "Electronics"
+    };
+    ```
+    
+4. **Option Values:**
+    
+    `Type aliases` can be used to create readable types for option values.
+    
+    ```tsx
+    type Option<T> = T | null | undefined;
+    
+    interface User {
+        id: number;
+        username: string;
+        email: string;
+    }
+    
+    function findUser(id: number): Option<User> {
+        // Simulating database query
+        const users: User[] = [
+            { id: 1, username: "alice", email: "alice@example.com" },
+            { id: 2, username: "bob", email: "bob@example.com" }
+        ];
+    
+        const user = users.find(user => user.id === id);
+        return user || null;
+    }
+    
+    const user1 = findUser(1);
+    
+    if (user1) {
+        console.log(`Found user with ID ${user1.id}: ${user1.username}`);
+    } else {
+        console.log("User not found");
+    }
+    
+    const user2 = findUser(3);
+    
+    if (user2) {
+        console.log(`Found user with ID ${user2.id}: ${user2.username}`);
+    } else {
+        console.log("User not found");
+    }
+    ```
+
+## Union Types
+In TypeScript, a union type allows you to specify that a value can have one of several types. This is useful when a variable, parameter, or return value could be of multiple types. Union types provide flexibility in scenarios where a value might have diverse possible forms.
+
+**⇒ Syntax:**
+
+You define a union type by separating the types with the **`|`** (pipe) symbol.
+
+```tsx
+let value: string | number;
+```
+
+<aside>
+💡 In the example above, **`value`** can hold either a **`string`** or a **`number`**.
+</aside>
+
+### Real-life examples of union types:
+
+1. **Phone Number or Email:**
+    
+    A field in a form could accept either a `phone number` or an `email address`.
+    
+    ```tsx
+    type Contact = string | number;
+    
+    let email: Contact = "engr.asadanik@gmail.com";
+    let phone: Contact = 1234567890;
+    ```
+    
+2. **Currency Converter:**
+    
+    A currency converter function might accept either a specific `currency code` or an `exchange rate`.
+    
+    ```tsx
+    type CurrencyInput = string | number;
+    
+    function convertCurrency(input: CurrencyInput): number {
+        // Implementation...
+    }
+    
+    let rate: CurrencyInput = 1.2; // Exchange rate
+    let amount: CurrencyInput = "USD"; // Currency code
+    ```
+    
+3. **User Authentication:**
+    
+    A function for user authentication could return either a `user object` or an `error message`.
+    
+    ```tsx
+    type AuthResult = User | string;
+    
+    function authenticateUser(username: string, password: string): AuthResult {
+        // Implementation...
+    }
+    
+    let result: AuthResult = authenticateUser("john_doe", "password");
+    if (typeof result === "string") {
+        console.log("Authentication failed:", result);
+    } else {
+        console.log("Welcome,", result.username);
+    }
+    ```
+    
+4. **Database Query Results:**
+    
+    A function that queries a database might return either a `result object` or **`null`** if no data is found.
+    
+    ```tsx
+    type DatabaseResult = { data: any } | null;
+    
+    function queryDatabase(query: string): DatabaseResult {
+        // Implementation...
+    }
+    
+    // Query to Get All Users..
+    let query1: DatabaseResult = queryDatabase("SELECT * FROM users");
+    
+    if (query1) {
+        console.log("Query result:", query1.data);
+    } else {
+        console.log("No data found.");
+    }
+    
+    // Query to Get Products with ID = 123..
+    let query2: DatabaseResult = queryDatabase("SELECT * FROM products WHERE id = 123");
+    
+    if (query2) {
+        console.log("Query result:", query2.data);
+    } else {
+        console.log("No data found.");
+    }
+    ```
+    
+
+<aside>
+💡 Union types allow you to express scenarios where a value can take on multiple, distinct types. They are a powerful tool for making your code more flexible and accommodating various data scenarios.
+</aside>
+
+## Intersection Types
+In TypeScript, an intersection type allows you to combine multiple types into a single type that has the features of all the constituent types. This can be useful when you need to represent a value that has properties and methods from different sources. Intersection types provide a way to create more complex and specialised types.
+
+**⇒ Syntax:**
+
+You define an intersection type by using the **`&`** symbol between the types you want to intersect.
+
+```tsx
+type CombinedType = Type1 & Type2;
+```
+
+<aside>
+💡 In the example above, **`CombinedType`** will include properties and methods from both **`Type1`** and **`Type2`**.
+
+</aside>
+
+### Here is an Example with TextBox functionality
+
+Let’s say our `TextBox` has two features, `Draggable` & `Resizable` and now we have to make combination of each types for using wisely.
+
+```tsx
+type Draggable = {
+	drag: () => void;
+};
+
+type Resizable = {
+	resize: () => void;
+};
+
+// Useses of Intersection Type..
+type UIWidget = Draggable & Resizable;
+
+let textBox: UIWidget = {
+	drag: () => {},
+	resize: () => {}
+};
+```
+
+### Real-life examples of Intersection Types:
+
+1. **Employee with Skills:**
+    
+    Imagine you want to represent an `employee` who is both a `person` (with personal information) and possesses certain `technical skills`.
+    
+    ```tsx
+    type Person = {
+    	firstName: string;
+    	lastName: string;
+    	age: number;
+    };
+    
+    type TechnicalSkills = {
+    	progammingLanguages: string[];
+    	tools: string[];
+    };
+    
+    // Useses of Intersection Type..
+    type Employee = Person & TechnicalSkills;
+    
+    let employee: Employee = {
+    	firstName: "Asad",
+    	lastName: "Anik",
+    	age: 23,
+    	progammingLanguages: ["TypeScript", "Swift"],
+    	tools: ["Web Storm", "Git", "VS Code"],
+    };
+    ```
+    
+2. **Admin User:**
+    
+    An admin user in a system might have both `user credentials` and `special privileges`.
+    
+    ```tsx
+    type UserCredentials = {
+        username: string;
+        password: string;
+    };
+    
+    type AdminPrivileges = {
+        isAdmin: true;
+        canManageUsers: true;
+    };
+    
+    // Usese of Intersection Type..
+    type AdminUser = UserCredentials & AdminPrivileges;
+    
+    let admin: AdminUser = {
+        username: "admin",
+        password: "secret",
+        isAdmin: true,
+        canManageUsers: true
+    };
+    ```
+    
+3. **Hybrid Vehicle:**
+    
+    A hybrid vehicle could have both properties of a `regular vehicle` and features of an `electric vehicle`.
+    
+    ```tsx
+    type Vehicle = {
+    	brand: string;
+    	model: string;
+    };
+    
+    type ElectricVehicle = {
+    	batteryCapacity: number;
+    	chargningTime: string;
+    };
+    
+    // Useses of Intersection Type..
+    type HybridVehicle = Vehicle & ElectricVehicle;
+    
+    let hybridCar: HybridVehicle = {
+    	brand: "Toyota",
+    	model: "CHR",
+    	batteryCapacity: 10.5,
+    	chargningTime: "2 hours"
+    };
+    ```
+    
+
+<aside>
+💡 Intersection types allow you to create complex types by combining the properties and methods of multiple source types. This can be incredibly useful for mode real-world scenarios where entities inherit traits from different sources.
+</aside>
+
+## Literal Types
+In TypeScript, literal types refer to types that represent a single, specific value. Literal types can be used to define exact values that a variable, parameter, or property can hold. They help make your code more precise by limiting the possible values to a certain set of options.
+
+⇒ There are some Literal types,
+
+- `String Literal Types`
+- `Numeric Literal Types`
+- `Boolean Literal Types`
+
+### String Literal Types
+
+`String literal` types allow you to specify that a variable can only have a certain string value.
+
+```tsx
+let gender: "male" | "female" | "other";
+// We can use any of thoes valus from Literal Types..
+gender = "female"; 
+```
+
+### **Numeric Literal Types**
+
+`Numeric literal` types restrict the variable to a specific numeric value.
+
+```tsx
+let statusCode: 200 | 201 | 400 | 403 | 404 | 500;
+// We can use any of thoes valus from Literal Types..
+statusCode = 404;
+```
+
+### **Boolean Literal Types**
+
+`Boolean literal` types limit the variable to either **`true`** or **`false`**.
+
+```tsx
+let isDone: true | false;
+// We can use any of thoes valus from Literal Types..
+isDone = true;
+```
+
+### **Real-life examples of literal types:**
+
+1. **HTTP Status Codes:**
+    
+    Literal types can be used to represent specific `HTTP status codes`.
+    
+    ```tsx
+    function handleResponses(status: 200 | 404 | 500): void {
+    	if (status === 200) {
+    		console.log("Success");
+    
+    	} else if (status === 404) {
+    		console.log("Not Found");
+    
+    	} else if (status === 500) {
+    		console.log("Internal Server Error");
+    
+    	}else {
+    		console.log("Invalid Status Code!");
+    	}
+    }
+    ```
+    
+2. **Configuration Settings:**
+    
+    Literal types can be used to define allowed `configuration values`.
+    
+    ```tsx
+    type Theme = "Light" | "Dark" | "Auto";
+    
+    function setTheme(theme: Theme): void {
+    	console.log(`That is our theme ${theme}`);
+    }
+    
+    setTheme("light"); // valid 
+    setTheme("purple"); // Error: Type '"purple"' is not assignable to type 'Theme'
+    ```
+    
+3. **Days of the Week:**
+    
+    Literal types can be used to enforce valid `days of the week`.
+    
+    ```tsx
+    type DayOfWeek = "Monday" | "Tuesday" | "Wednesday" | "Thursday" | "Friday" | "Saturday" | "Sunday";
+    
+    function getWeekend(day: DayOfWeek): void {
+    	if (day === "Saturday" || day === "Sunday") {
+    		console.log("It's the Weekend!");
+    	} else {
+    		console.log("It's a Weekday.");
+    	}
+    }
+    ```
+    
+    <aside>
+    💡 Literal types help you create more precise and self-documenting code by explicitly specifying the allowed values for a variable or parameter. This can lead to fewer runtime errors and better code maintainability.
+    </aside>
+
+## Nullable Types
+Nullable types in TypeScript allow you to indicate that a variable can have either its assigned type or a value of **`null`** or **`undefined`**. This is particularly useful when you want to explicitly represent the possibility of absence or lack of a value.
+
+**⇒ Syntax:**
+
+You can indicate a nullable type by adding **`| null`** or **`| undefined`** to the type declaration.
+
+```tsx
+let value: string | null;
+let result: number | undefined;
+```
+
+⇒ Sometime Null types are not assignable to string types value or as arguments. Then we have to enable an option from `tsconfig.json` file. `“strictNullChecks”: false` . 
+
+### **Real-life examples of nullable types**
+
+1. **Optional Fields in User Profile:**
+    
+    In a `user profile`, some fields might be optional. `Nullable types` can be used to represent the possibility of these fields being absent.
+    
+    ```tsx
+    interface UserProfile {
+    	username: string;
+    	email: string;
+    	age?: number | null; // Age can be a Number or Null..
+    	address?: string | null; // Address can be a String or Null..
+    }
+    
+    let user1: UserProfile = {
+    	username: "Asad Anik",
+    	email: "engr.asadanik@gmail.com",
+    	age: 23,
+    	address: null
+    };
+    
+    let user2: UserProfile = {
+    	username: "Sadia Lima",
+    	email: "sadia.lima@gmail.com"
+    };
+    ```
+    
+2. **API Response Handling:**
+    
+    When dealing with `API responses`, data might be present or absent. `Nullable types` can represent this uncertainty.
+    
+    ```tsx
+    type ApiResponse<T> = {
+    	success: boolean;
+    	data: T | null;
+    	error: string | null;
+    };
+    
+    let response1: ApiResponse<string> = {
+    	success: true,
+    	data: "Hello, World",
+    	error: null
+    };
+    
+    let response2: ApiResponse<number[]> = {
+    	success: false,
+    	data: null,
+    	error: "API Request Failed"
+    };
+    ```
+    
+3. **Database Query Results:**
+    
+    When `querying a database`, you might encounter scenarios where no data matches the query. `Nullable types` can handle these cases.
+    
+    ```tsx
+    type DatabaseResult<T> = T | null;
+    
+    function queryDatabase<T>(query: string): DatabaseResult<T> {
+    	// Implementation..
+    }
+    
+    let query1: DatabaseResult<User> = queryDatabase<User>("SELECT * FROM users WHERE id = 1");
+    
+    if (query1) {
+    	console.log("User found: ", query1);
+    } else {
+    	console.log("No user found.");
+    }
+    
+    let query2: DatabaseResult<Product> = queryDatabase<Product>("SELECT * FROM products WHERE id = 123");
+    
+    if (query2) {
+    	console.log("Product found: ", query2);
+    } else {
+    	console.log("No product found.");
+    }
+    ```
+    
+
+<aside>
+💡 Nullable types provide a way to express the potential absence of a value and allow you to write more robust code when dealing with optional or uncertain data.
+</aside>
+
+## Optional Chaining
+Optional chaining is a feature in TypeScript (and JavaScript) that allows you to safely access nested properties or call nested methods on an object without causing errors if any of the intermediate values is **`null`** or **`undefined`**. It helps you write more concise and robust code when dealing with potentially missing data.
+
+**⇒ Syntax:**
+
+The optional chaining operator is represented by the question mark **`?.`**.
+
+```tsx
+object?.property;
+object?.method();
+```
+
+⇒ Let’s say about optional property access operator.
+
+```tsx
+type Customer = {
+	birthday: Date
+};
+
+function getCustomer(id: number): Customer | null {
+	return id === 0 ? null : { brithday: new Date() };
+}
+
+let customer = getCustomer(0);
+// Optional property access operator..
+console.log(customer?.birthday);
+```
+
+### **Real-life examples of optional chaining**
+
+1. **Accessing Nested Object Properties:**
+    
+    Suppose you have a nested object structure representing a `user profile`, and you want to access the user's address information.
+    
+    ```tsx
+    interface UserProfile {
+    	username: string;
+    	email: string;
+    	address?: {
+    		street: string;
+    		city: string;
+    		zipCode: number;
+    	}
+    }
+    
+    let user1: UserProfile = {
+    	username: "asadanik",
+    	email: "engr.asadanik@gmail.com",
+    	address: {
+    		street: "123 Main St.",
+    		city: "Dhaka",
+    		zipCode: 12345
+    	}
+    };
+    
+    let user2: UserProfile = {
+    	username: "sadialima",
+    	email: "sadia.lima@gmail.com"
+    };
+    
+    console.log(user1.address?.city); // OUTPUT: "Dhaka"
+    console.log(user2?.address?.city); // OUTPUT: undefined (no error)
+    ```
+    
+2. **Calling Optional Methods:**
+    
+    You might have an object with an `optional method`, and you want to call that method if it's available.
+    
+    ```tsx
+    interface Calculator {
+        add: (a: number, b: number) => number;
+        subtract?: (a: number, b: number) => number;
+    }
+    
+    let calculator: Calculator = {
+        add: (a, b) => a + b
+    };
+    
+    console.log(calculator.add(3, 5)); // Output: 8
+    console.log(calculator.subtract?.(10, 2)); // Output: undefined (no error)
+    ```
+    
+3. **Working with API Responses:**
+    
+    When dealing with `API responses`, some data might be missing. Optional chaining can help you handle this gracefully.
+    
+    ```tsx
+    interface ApiResponse {
+        success: boolean;
+        data?: {
+            name: string;
+            age: number;
+        };
+    }
+    
+    let response1: ApiResponse = {
+        success: true,
+        data: {
+            name: "Alice",
+            age: 30
+        }
+    };
+    
+    let response2: ApiResponse = {
+        success: false
+    };
+    
+    console.log(response1.data?.name); // Output: "Alice"
+    console.log(response2.data?.name); // Output: undefined (no error)
+    ```
+    
+
+<aside>
+💡 Optional chaining allows you to access deeply nested properties and methods without explicitly checking for the presence of each intermediate value. It's especially useful when dealing with data that might be incomplete or uncertain.
+</aside>
